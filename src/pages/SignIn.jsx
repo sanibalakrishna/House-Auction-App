@@ -1,5 +1,5 @@
 import React from 'react'
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import { toast } from 'react-toastify'
 import {Link,useNavigate} from 'react-router-dom'
 import {getAuth,signInWithEmailAndPassword} from 'firebase/auth'
@@ -22,6 +22,9 @@ function SignIn() {
     }))
 
   }
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   const onSubmit = async(e)=>{
     e.preventDefault()
    try {
@@ -41,27 +44,37 @@ function SignIn() {
   return (
     <div className='pageContainer'>
       <header>
-        <p className='pageHeader'>
-          Welcome Back!
-        </p>
+          <div className="logo">
+          <img src="https://cdn-icons-png.flaticon.com/512/8032/8032993.png" height={50} alt='icon'/>
+          <p className='logoHeader'>House Auction Place</p>
+          </div>
+          
+        
       </header>
       <main>
+         <p className='pageHeader'>Welcome Back!</p>
         <form onSubmit={onSubmit}>
           <input type="email" className='emailInput' placeholder='Email' id='email' value={email} onChange={onChange}/>
            <div className="passwordInputDiv">
              <input type={showPassword?'text':'password'} className='passwordInput' placeholder='Password' id='password' value={password} onChange={onChange}/>
               <img src={visibilityIcon} alt="showpassword" className="showPassword" onClick={()=>setShowPassword((prevstate)=>!prevstate)}/>
            </div>
-           <Link to='/forgot-password' className='forgotPasswordLink'>forgot passowrd</Link>
+           <Link to='/forgot-password' className='forgotPasswordLink'>forgot password</Link>
            <div className='signInBar'>
             <p className='signInText'>Sign In</p>
             <button className='signInButton'><ArrowRightIcon fill='#ffffff' width='34px' height='34px'/></button>
 
            </div>
         </form>
+       
         <OAuth/>
-        <Link to='/sign-up' className='registerLink'>Sign Up Instead</Link>
+       
+        
       </main>
+      <div className="registerLinkDiv"> <p>Already have an account?<nbsp></nbsp> </p>
+      <Link to='/sign-up' className='registerLink'>Sign Up Instead</Link></div>
+     
+    
     </div>
   )
 }

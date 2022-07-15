@@ -24,6 +24,11 @@ button {
   outline: none;
   border: none;
 }
+.logo{
+  
+  display: flex;
+  justify-content: center;
+}
 
 .input,
 .passwordInput,
@@ -103,6 +108,9 @@ button {
     margin: 3rem;
   }
 }
+.pageContainer{
+  overflow: auto;
+}
 
 .loadingSpinnerContainer {
   position: fixed;
@@ -136,6 +144,11 @@ button {
 
 .pageHeader {
   font-size: 2rem;
+  font-weight: 800;
+}
+.logoHeader{
+  font-size: larger;
+  
   font-weight: 800;
 }
 
@@ -264,10 +277,11 @@ button {
 }
 
 .socialLogin {
-  margin-top: 4rem;
+  margin-top: 3rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
+ 
 }
 
 .socialIconDiv {
@@ -289,10 +303,20 @@ button {
 }
 
 .registerLink {
-  margin-top: 4rem;
+  margin-top: 3rem;
   color: #00cc66;
   font-weight: 600;
   text-align: center;
+  margin-bottom: 3rem;
+  font-size: large;
+}
+.registerLinkDiv{
+  font-size: small;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  margin-top: 3rem;
   margin-bottom: 3rem;
 }
 
